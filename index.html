@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CRICVERSE — Everything Cricket. One Powerful App.</title>
+<meta name="description" content="CRICVERSE brings cricket fans closer to matches, players, teams, scores and exciting cricket content. Download the APK today." />
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ============ FRONT LOGIN LANDING GATE ============ -->
+<section class="login-landing-gate" id="loginLandingGate">
+  <div class="login-landing-bg">
+    <div class="stadium-lights">
+      <span></span><span></span><span></span><span></span>
+    </div>
+    <div class="gate-ball">
+      <svg viewBox="0 0 100 100" width="100" height="100">
+        <circle cx="50" cy="50" r="46" fill="url(#ballGradGate)"/>
+        <path d="M50 4 A46 46 0 0 1 50 96" stroke="#F3D07A" stroke-width="2.4" fill="none" opacity="0.75"/>
+        <path d="M16 22 Q50 50 16 78" stroke="#F3D07A" stroke-width="2" fill="none" opacity="0.55"/>
+        <path d="M84 22 Q50 50 84 78" stroke="#F3D07A" stroke-width="2" fill="none" opacity="0.55"/>
+        <defs>
+          <radialGradient id="ballGradGate" cx="35%" cy="30%" r="75%">
+            <stop offset="0%" stop-color="#4CC178"/>
+            <stop offset="60%" stop-color="#1F7A4C"/>
+            <stop offset="100%" stop-color="#0C3A24"/>
+          </radialGradient>
+        </defs>
+      </svg>
+    </div>
+  </div>
+
+  <div class="login-landing-card container">
+    <div class="gate-brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="48" height="48">
+          <circle cx="20" cy="20" r="18" fill="url(#ballGradHeaderGate)"/>
+          <path d="M20 3 A17 17 0 0 1 20 37" stroke="#E8B84B" stroke-width="1.4" fill="none" opacity="0.7"/>
+          <path d="M6 12 Q20 20 6 28" stroke="#E8B84B" stroke-width="1.2" fill="none" opacity="0.55"/>
+          <path d="M34 12 Q20 20 34 28" stroke="#E8B84B" stroke-width="1.2" fill="none" opacity="0.55"/>
+          <defs>
+            <radialGradient id="ballGradHeaderGate" cx="35%" cy="30%" r="75%">
+              <stop offset="0%" stop-color="#3CB371"/>
+              <stop offset="100%" stop-color="#123D2A"/>
+            </radialGradient>
+          </defs>
+        </svg>
+      </span>
+      <h1 class="gate-title">CRICVERSE</h1>
+      <p class="gate-tagline">Everything Cricket. One Powerful App.</p>
+    </div>
+
+    <div class="gate-box">
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-tab="front-login" id="gateTabLoginBtn">Log In</button>
+        <button class="auth-tab" data-tab="front-signup" id="gateTabSignupBtn">Sign Up</button>
+      </div>
+
+      <div class="gate-alert hidden" id="gateAlert"></div>
+
+      <!-- Front Login Form -->
+      <form class="auth-form" id="frontLoginForm">
+        <p class="auth-subtext">Enter your credentials to enter CRICVERSE.</p>
+        <label>
+          Email Address
+          <input type="email" id="frontLoginEmail" placeholder="you@example.com" required autocomplete="email">
+        </label>
+        <label>
+          Password
+          <input type="password" id="frontLoginPassword" placeholder="••••••••" required autocomplete="current-password">
+        </label>
+        <button type="submit" class="btn btn-primary btn-block btn-lg" id="frontLoginSubmitBtn">Log In &amp; Open Website</button>
+      </form>
+
+      <!-- Front Signup Form -->
+      <form class="auth-form hidden" id="frontSignupForm">
+        <p class="auth-subtext">Create an account to unlock CRICVERSE app &amp; downloads.</p>
+        <label>
+          Full Name
+          <input type="text" id="frontSignupName" placeholder="Your Name" required autocomplete="name">
+        </label>
+        <label>
+          Email Address
+          <input type="email" id="frontSignupEmail" placeholder="you@example.com" required autocomplete="email">
+        </label>
+        <label>
+          Password
+          <input type="password" id="frontSignupPassword" placeholder="At least 6 characters" required minlength="6" autocomplete="new-password">
+        </label>
+        <button type="submit" class="btn btn-primary btn-block btn-lg" id="frontSignupSubmitBtn">Create Account &amp; Open Website</button>
+      </form>
+    </div>
+
+    <div class="gate-features">
+      <span>🏏 Live Matches &amp; Scores</span>
+      <span>⚡ Fast APK Downloads</span>
+      <span>🏆 Tournaments &amp; Stats</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MAIN WEBSITE (GATED) ============ -->
+<div class="app-website hidden" id="appWebsite">
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner container">
+    <a href="#home" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="34" height="34">
+          <circle cx="20" cy="20" r="18" fill="url(#ballGradHeader)"/>
+          <path d="M20 3 A17 17 0 0 1 20 37" stroke="#E8B84B" stroke-width="1.4" fill="none" opacity="0.7"/>
+          <path d="M6 12 Q20 20 6 28" stroke="#E8B84B" stroke-width="1.2" fill="none" opacity="0.55"/>
+          <path d="M34 12 Q20 20 34 28" stroke="#E8B84B" stroke-width="1.2" fill="none" opacity="0.55"/>
+          <defs>
+            <radialGradient id="ballGradHeader" cx="35%" cy="30%" r="75%">
+              <stop offset="0%" stop-color="#3CB371"/>
+              <stop offset="100%" stop-color="#123D2A"/>
+            </radialGradient>
+          </defs>
+        </svg>
+      </span>
+      <span class="brand-name">CRICVERSE</span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#screenshots" class="nav-link">Screenshots</a>
+      <a href="#cricket" class="nav-link">Cricket</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <div class="nav-cta-mobile">
+        <button class="btn btn-outline" id="navContactBtn">Contact</button>
+        <button class="btn btn-primary" id="navDownloadBtn">⬇ Download APK</button>
+        <button class="btn btn-ghost" id="navLogoutBtn">Logout</button>
+      </div>
+    </nav>
+
+    <div class="header-actions">
+      <span class="user-greeting" id="userGreeting">Welcome</span>
+      <button class="btn btn-outline btn-sm" id="headerContactBtn">Contact</button>
+      <button class="btn btn-primary btn-sm" id="headerDownloadBtn">⬇ Download APK</button>
+      <button class="btn btn-ghost btn-sm" id="authToggleBtn">Logout</button>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="nav-scrim" id="navScrim"></div>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="home">
+    <div class="hero-glow"></div>
+    <div class="container hero-grid">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">🏏 Cricket App • Android 8.0+</p>
+        <h1 class="hero-title">
+          Everything Cricket.<br>
+          <span class="accent-text">One Powerful App.</span>
+        </h1>
+        <p class="hero-desc">
+          CRICVERSE brings cricket fans closer to matches, players, teams, scores and exciting cricket content.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary btn-lg" id="heroDownloadBtn">⬇ Download APK</button>
+          <a href="#screenshots" class="btn btn-outline btn-lg">See Screenshots</a>
+        </div>
+
+        <div class="apk-meta">
+          <span id="apkVersion">Latest Version</span>
+          <span class="dot">•</span>
+          <span id="apkSize">APK Size</span>
+          <span class="dot">•</span>
+          <span id="apkAndroid">Android 8.0+</span>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <strong>100%</strong>
+            <span>Cricket</span>
+          </div>
+          <div class="stat">
+            <strong>Fast</strong>
+            <span>Updates</span>
+          </div>
+          <div class="stat">
+            <strong id="statVersion">v2.4</strong>
+            <span>Latest Version</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal" aria-hidden="true">
+        <div class="stadium-scene">
+          <div class="stadium-lights">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="stadium-arc"></div>
+          <div class="pitch"></div>
+          <div class="floating-ball">
+            <svg viewBox="0 0 100 100" width="100%" height="100%">
+              <circle cx="50" cy="50" r="46" fill="url(#ballGradHero)"/>
+              <path d="M50 4 A46 46 0 0 1 50 96" stroke="#F3D07A" stroke-width="2.4" fill="none" opacity="0.75"/>
+              <path d="M16 22 Q50 50 16 78" stroke="#F3D07A" stroke-width="2" fill="none" opacity="0.55"/>
+              <path d="M84 22 Q50 50 84 78" stroke="#F3D07A" stroke-width="2" fill="none" opacity="0.55"/>
+              <defs>
+                <radialGradient id="ballGradHero" cx="35%" cy="30%" r="75%">
+                  <stop offset="0%" stop-color="#4CC178"/>
+                  <stop offset="60%" stop-color="#1F7A4C"/>
+                  <stop offset="100%" stop-color="#0C3A24"/>
+                </radialGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="cricket-bat" aria-hidden="true">
+            <svg viewBox="0 0 60 220" width="70" height="220">
+              <rect x="22" y="10" width="16" height="120" rx="7" fill="#E8C078"/>
+              <rect x="24" y="14" width="12" height="112" rx="5" fill="#F0D39A"/>
+              <rect x="18" y="128" width="24" height="70" rx="9" fill="#8A5A2B"/>
+              <rect x="20" y="196" width="20" height="18" rx="4" fill="#5C3A1B"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="section" id="about">
+    <div class="container">
+      <p class="section-tag reveal">About CRICVERSE</p>
+      <h2 class="section-heading reveal">Built for Every Cricket Fan</h2>
+      <p class="section-lead reveal">
+        CRICVERSE is designed for cricket fans who want an easy, modern way to follow the sport they love —
+        without the clutter. Whether you're tracking a live match or catching up on your favourite team,
+        everything sits one tap away.
+      </p>
+
+      <div class="about-grid">
+        <div class="about-card reveal">
+          <span class="about-icon">🏏</span>
+          <h3>Built for Cricket Fans</h3>
+          <p>Every screen is shaped around how fans actually follow the game — scores, teams and players, front and centre.</p>
+        </div>
+        <div class="about-card reveal">
+          <span class="about-icon">⚡</span>
+          <h3>Fast and Lightweight</h3>
+          <p>A small install size and a snappy interface mean CRICVERSE stays out of your way and gets you to the game faster.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURES ============ -->
+  <section class="section section-alt" id="features">
+    <div class="container">
+      <p class="section-tag reveal">Features</p>
+      <h2 class="section-heading reveal">Everything You Need, On the Field and Off</h2>
+
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <span class="feature-icon">🏏</span>
+          <h3>Live Cricket Updates</h3>
+          <p>Get the latest cricket information and match updates as they happen.</p>
+        </div>
+        <div class="feature-card reveal">
+          <span class="feature-icon">📊</span>
+          <h3>Match Information</h3>
+          <p>View important match details in a clean, easy-to-read layout.</p>
+        </div>
+        <div class="feature-card reveal">
+          <span class="feature-icon">👤</span>
+          <h3>Player Profiles</h3>
+          <p>Explore cricket player information, all organised in one place.</p>
+        </div>
+        <div class="feature-card reveal">
+          <span class="feature-icon">🏆</span>
+          <h3>Teams &amp; Tournaments</h3>
+          <p>Follow teams and major tournaments throughout the season.</p>
+        </div>
+        <div class="feature-card reveal">
+          <span class="feature-icon">🔔</span>
+          <h3>Match Notifications</h3>
+          <p>Stay updated with important cricket events the moment they occur.</p>
+        </div>
+        <div class="feature-card reveal">
+          <span class="feature-icon">📱</span>
+          <h3>Lightweight Experience</h3>
+          <p>A fast, optimised application that feels smooth on any device.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCREENSHOTS ============ -->
+  <section class="section" id="screenshots">
+    <div class="container">
+      <p class="section-tag reveal">Screenshots</p>
+      <h2 class="section-heading reveal">A Closer Look Inside CRICVERSE</h2>
+      <p class="section-lead reveal">Swipe through the app before you download it.</p>
+    </div>
+
+    <div class="screens-track reveal">
+      <div class="phone-mock">
+        <div class="phone-notch"></div>
+        <div class="phone-screen screen-home">
+          <div class="mock-topbar"><span>CRICVERSE</span><span>🔔</span></div>
+          <div class="mock-score-card">
+            <div class="mock-team"><span class="mock-flag flag-a"></span>IND</div>
+            <div class="mock-score">248/4 <small>(38.2)</small></div>
+            <div class="mock-team">AUS<span class="mock-flag flag-b"></span></div>
+          </div>
+          <div class="mock-tag">LIVE • 3rd ODI</div>
+          <div class="mock-list">
+            <div class="mock-row"></div>
+            <div class="mock-row"></div>
+            <div class="mock-row short"></div>
+          </div>
+        </div>
+        <p class="phone-caption">Cricket Home Screen</p>
+      </div>
+
+      <div class="phone-mock">
+        <div class="phone-notch"></div>
+        <div class="phone-screen screen-match">
+          <div class="mock-topbar"><span>Match Details</span><span>⋮</span></div>
+          <div class="mock-venue">Narendra Modi Stadium, Ahmedabad</div>
+          <div class="mock-bars">
+            <div class="mock-bar" style="width:82%"></div>
+            <div class="mock-bar" style="width:64%"></div>
+            <div class="mock-bar" style="width:47%"></div>
+          </div>
+          <div class="mock-stat-grid">
+            <div class="mock-stat"><strong>CRR</strong><span>6.48</span></div>
+            <div class="mock-stat"><strong>RRR</strong><span>7.10</span></div>
+            <div class="mock-stat"><strong>Overs</strong><span>38.2</span></div>
+          </div>
+        </div>
+        <p class="phone-caption">Match Details Screen</p>
+      </div>
+
+      <div class="phone-mock">
+        <div class="phone-notch"></div>
+        <div class="phone-screen screen-player">
+          <div class="mock-topbar"><span>Player Profile</span><span>★</span></div>
+          <div class="mock-avatar"></div>
+          <div class="mock-player-name">Player Name</div>
+          <div class="mock-player-role">Top-Order Batter</div>
+          <div class="mock-stat-grid three">
+            <div class="mock-stat"><strong>Matches</strong><span>214</span></div>
+            <div class="mock-stat"><strong>Runs</strong><span>8,942</span></div>
+            <div class="mock-stat"><strong>Avg</strong><span>48.6</span></div>
+          </div>
+        </div>
+        <p class="phone-caption">Player Profile Screen</p>
+      </div>
+
+      <div class="phone-mock">
+        <div class="phone-notch"></div>
+        <div class="phone-screen screen-tournament">
+          <div class="mock-topbar"><span>Tournaments</span><span>🏆</span></div>
+          <div class="mock-tournament-card gold"></div>
+          <div class="mock-tournament-card green"></div>
+          <div class="mock-tournament-card navy"></div>
+        </div>
+        <p class="phone-caption">Tournament Screen</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CRICKET HIGHLIGHT ============ -->
+  <section class="section" id="cricket">
+    <div class="container highlight-banner reveal">
+      <div class="highlight-copy">
+        <p class="section-tag">Cricket Experience</p>
+        <h2 class="section-heading">Every Match. Every Moment.</h2>
+        <p class="section-lead">
+          Stay connected with the world of cricket through a simple and powerful application.
+        </p>
+        <ul class="check-list">
+          <li>✓ Fast and simple interface</li>
+          <li>✓ Cricket-focused experience</li>
+          <li>✓ Lightweight Android application</li>
+        </ul>
+      </div>
+      <div class="highlight-visual" aria-hidden="true">
+        <div class="highlight-ring"></div>
+        <div class="highlight-ball">
+          <svg viewBox="0 0 100 100" width="100%" height="100%">
+            <circle cx="50" cy="50" r="46" fill="url(#ballGradHighlight)"/>
+            <path d="M50 4 A46 46 0 0 1 50 96" stroke="#F3D07A" stroke-width="2.4" fill="none" opacity="0.75"/>
+            <path d="M16 22 Q50 50 16 78" stroke="#F3D07A" stroke-width="2" fill="none" opacity="0.55"/>
+            <path d="M84 22 Q50 50 84 78" stroke="#F3D07A" stroke-width="2" fill="none" opacity="0.55"/>
+            <defs>
+              <radialGradient id="ballGradHighlight" cx="35%" cy="30%" r="75%">
+                <stop offset="0%" stop-color="#F0C15C"/>
+                <stop offset="60%" stop-color="#B4842A"/>
+                <stop offset="100%" stop-color="#5C3E12"/>
+              </radialGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section section-alt" id="contact">
+    <div class="container contact-grid">
+      <div class="contact-info reveal">
+        <p class="section-tag">Contact</p>
+        <h2 class="section-heading">Get in Touch</h2>
+        <p class="section-lead">Have a question, found a bug, or want to suggest a feature? Send us a message.</p>
+
+        <div class="contact-cards">
+          <div class="contact-card">
+            <span>✉️</span>
+            <div>
+              <h4>Email</h4>
+              <p>support@cricverse.app</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <span>🐞</span>
+            <div>
+              <h4>Report a Bug</h4>
+              <p>Tell us what went wrong and we'll look into it.</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <span>💡</span>
+            <div>
+              <h4>Feature Requests</h4>
+              <p>Got an idea for CRICVERSE? We'd love to hear it.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form reveal" id="contactForm">
+        <label>
+          Name
+          <input type="text" name="name" id="contactName" placeholder="Your name" required>
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" id="contactEmail" placeholder="you@example.com" required>
+        </label>
+        <label>
+          Message
+          <textarea name="message" id="contactMessage" rows="5" placeholder="How can we help?" required></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="contactSubmitBtn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="final-cta reveal">
+    <div class="container final-cta-inner">
+      <h2>Ready to Experience CRICVERSE?</h2>
+      <p>Download the latest version and enjoy cricket in one powerful app.</p>
+      <button class="btn btn-primary btn-lg" id="finalDownloadBtn">⬇ Download CRICVERSE APK</button>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <span class="brand-name">CRICVERSE</span>
+      <p>The one app cricket fans reach for — scores, teams, players and more.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#features">Features</a>
+      <a href="#cricket">Cricket</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© 2026 CRICVERSE. Independently developed.</p>
+  </div>
+</footer>
+</div> <!-- /#appWebsite -->
+
+<!-- ============ AUTH MODAL ============ -->
+<div class="modal-overlay" id="authModalOverlay">
+  <div class="modal auth-modal">
+    <button class="modal-close" id="authModalClose" aria-label="Close">✕</button>
+
+    <div class="auth-tabs">
+      <button class="auth-tab active" data-tab="login" id="tabLoginBtn">Log In</button>
+      <button class="auth-tab" data-tab="signup" id="tabSignupBtn">Sign Up</button>
+    </div>
+
+    <p class="auth-subtext">Log in to unlock your CRICVERSE APK download.</p>
+
+    <form class="auth-form" id="loginForm">
+      <label>
+        Email
+        <input type="email" id="loginEmail" placeholder="you@example.com" required>
+      </label>
+      <label>
+        Password
+        <input type="password" id="loginPassword" placeholder="••••••••" required>
+      </label>
+      <button type="submit" class="btn btn-primary btn-block">Log In</button>
+    </form>
+
+    <form class="auth-form hidden" id="signupForm">
+      <label>
+        Full Name
+        <input type="text" id="signupName" placeholder="Your name" required>
+      </label>
+      <label>
+        Email
+        <input type="email" id="signupEmail" placeholder="you@example.com" required>
+      </label>
+      <label>
+        Password
+        <input type="password" id="signupPassword" placeholder="At least 6 characters" required minlength="6">
+      </label>
+      <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+    </form>
+  </div>
+</div>
+
+<!-- ============ TOAST CONTAINER ============ -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
